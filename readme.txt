@@ -7,7 +7,7 @@ where each integer represents the amount of resistance encountered at a given po
 enters the grid from the left (at any point) and passes through the grid to the right, moving only one
 column per round. Movement is always to an adjacent row; meaning water can flow horizontally or
 diagonally. For the sake of this challenge, we assume the first and last row are also adjacent. Effectively,
-the grid ìwrapsî.
+the grid ‚Äúwraps‚Äù.
 
 The total resistance of a path is the sum of the integers in each of the visited cells. The solution needs to
 handle grids of various sizes with a minimum of 1 row and 5 columns up to 10 rows and 100 columns. If
@@ -45,7 +45,7 @@ GridCell - implementation of IGridCell for the path of least resistance challeng
 PathSolver - implementation of logic to solve the least resistance challenge.
 Program - implementation to run from command line input
 
-I could have produced 1 file with several functions and solved the problem in fewer lines of code.  The problem was to be solved as though it is a real time problem and all attributes like modularization, extensibility, scalability, security etc.  With only a requirement to support 10 rows and 100 columns, there is no reason to tightly optimize for speed or memory, and there are no major scalability issues.  Effort was made to maximize modularization, and extensibility.  This project had no special security issues.
+I could have produced 1 file with several functions and solved the problem in fewer lines of code.  The problem was to be solved as though it is a real time problem and all attributes like modularization, extensibility, scalability, security etc.  Effort was made to maximize modularization, and extensibility.  With only a requirement to support 10 rows and 100 columns, there is no reason to tightly optimize for speed or memory, and there are no major scalability issues.  Visiting every cell is an O(n) solution.  Alternatively, potential paths could have been put onto a heap and the next path with the least resistence removed and new paths added.  This would solve the challenge in O(log(n)), but is a more difficult solution to code, read and maintain, and was not expected to be faster until grids are much larger than the challenge problem.  This project had no special security issues.
 
 Assumptions:
 1) No checking is done for grids larger than 10x100 was done.  No requirement was given to fail for larger grids, just that grids up to this size should be supported.  The code is simpler and more reusable without this check.
